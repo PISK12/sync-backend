@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+    node:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - .:/home/node/app
+        ports:
+            - "8080:8080"
+        depends_on:
+          - database
+        command: npm start
+
+    database:
+        image: mysql:8
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_PASS}
+            MYSQL_DATABASE: sync
+        ports:
+            - "3306:3306"

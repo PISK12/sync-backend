@@ -1,0 +1,8 @@
+GET http://localhost:8080/url?token=2971273202616409
+
+###
+
+POST http://localhost:8080/url
+Content-Type: application/json
+
+{"token": 2971273202616409, "url": "https://www.urlencode1r.org/"}
